@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#471029">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Portfolio de Mathieu Pasquet : design graphique et photographie.">
+  <title>Mathieu Pasquet – Portfolio</title>
+  <!-- Polices (Google Fonts). Pour en changer, modifie ce lien ET les variables dans style.css -->
+  <!-- Arimo = alternative libre à Helvetica (utilisée seulement si Helvetica n'est pas installée) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== EN-TÊTE ===== -->
+  <header class="hero">
+    <p class="hero__portfolio">Portfolio<span class="hero__annee">2026</span></p>
+    <h1 class="hero__nom">Mathieu<br>Pasquet</h1>
+    <p class="hero__role">Designer &amp; photographe</p>
+    <p class="hero__texte">Étudiant en première année de bachelor design graphique et digital à l’école Autograf (Paris 20e arrondissement)</p>
+    <svg class="vague vague--bas" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0H1440V30C1380 52 1300 64 1210 56C1090 46 1010 14 880 20C750 26 690 60 560 62C430 64 350 30 220 28C140 27 70 40 0 56Z"/></svg>
+  </header>
+
+  <!-- ===== ONGLETS (pilule en verre) ===== -->
+  <nav class="onglets" aria-label="Sections du portfolio">
+    <span class="onglets__thumb" aria-hidden="true"></span>
+    <button class="onglet is-actif" data-cible="design">Design</button>
+    <button class="onglet" data-cible="photo">Photo</button>
+  </nav>
+
+  <main>
+    <!-- Onglet DESIGN : carrousel rempli par script.js à partir de la liste PROJETS -->
+    <section id="design" class="panneau is-actif">
+      <div class="carrousel" id="grille-projets"></div>
+    </section>
+
+    <!-- Onglet PHOTO : même carrousel, rempli à partir de la liste PHOTOS -->
+    <section id="photo" class="panneau">
+      <div class="carrousel" id="grille-photos"></div>
+    </section>
+  </main>
+
+  <footer class="pied">
+    <svg class="vague vague--haut" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true"><path d="M0 80H1440V50C1370 28 1290 16 1200 24C1080 34 1000 66 870 60C740 54 680 22 550 20C420 18 340 50 210 54C130 56 60 44 0 28Z"/></svg>
+    <a class="pied__lien" href="https://www.instagram.com/bymathieu_psqt/" target="_blank" rel="noopener">Instagram <span>@bymathieu_psqt</span></a>
+    <a class="pied__lien" href="https://www.tiktok.com/@bymathieu_psqt" target="_blank" rel="noopener">TikTok <span>bymathieu_psqt</span></a>
+  </footer>
+
+  <!-- Fenêtre de détail d'un projet -->
+  <div class="detail" id="detail" hidden>
+    <div class="detail__fond" data-fermer></div>
+    <article class="detail__boite" role="dialog" aria-modal="true" aria-labelledby="detail-titre">
+      <button class="detail__fermer" data-fermer aria-label="Fermer">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <div class="detail__images" id="detail-images"></div>
+      <div class="detail__infos">
+        <p class="detail__meta" id="detail-meta"></p>
+        <h2 id="detail-titre"></h2>
+        <p id="detail-texte"></p>
+      </div>
+    </article>
+  </div>
+
+  <!-- Agrandissement plein écran (images de projets et photos) -->
+  <div class="lightbox" id="lightbox" hidden>
+    <button class="lightbox__btn lightbox__prec" aria-label="Image précédente">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>
+    </button>
+    <figure>
+      <div id="lightbox-media"></div>
+      <figcaption id="lightbox-legende"></figcaption>
+    </figure>
+    <button class="lightbox__btn lightbox__suiv" aria-label="Image suivante">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+    </button>
+    <button class="lightbox__btn lightbox__fermer" aria-label="Fermer">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
